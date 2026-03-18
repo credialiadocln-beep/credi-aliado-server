@@ -110,7 +110,7 @@ app.post('/llamada-prueba', async (req, res) => {
 app.post('/procesar/:slot', async (req, res) => {
   const slot = parseInt(req.params.slot);
   if (slot<1||slot>4) return res.status(400).json({ error: 'Slot inválido' });
-  procesarLlamadas(slot);
+  await procesarLlamadas(slot);
   res.json({ success: true });
 });
 
